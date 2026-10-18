@@ -1,0 +1,9 @@
+Company Directory Tree - Design Memo
+
+I built the company directory using an EmployeeNode class and a TeamTree class. Each employee node stores a name and two references, left and right, for direct reports. The TeamTree stores the root, which represents the team lead. This makes the reporting structure easy to follow because every employee is connected to the manager directly above them.
+
+Recursive insertion starts at the root and compares the current employee's name with the manager's name entered by the user. If they match, the program checks whether the requested left or right position is empty. If it is, the new employee node is attached there. If the names do not match, the method searches the left subtree and then the right subtree. Each recursive call works on a smaller part of the tree, and the search stops when the manager is found or all branches have been checked.
+
+The biggest challenge was handling unsuccessful searches correctly. Without careful return values, the program could print multiple error messages while moving back through the recursive calls. I used Boolean results to communicate whether the search succeeded and only report a missing manager after the entire tree has been searched. I also added checks for occupied positions and invalid sides.
+
+Trees are useful when information has clear parent-child relationships, such as company reporting structures, file folders, website elements, and decision paths. Unlike a flat list, a tree directly represents those relationships. A binary tree also limits each employee to two direct reports, which matches this assignment's requirements.
